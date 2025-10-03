@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>أولى ثانوي — المقرر</title>
+  <style>
+    html,body{height:100%;margin:0}
+    iframe{width:100%;height:100vh;border:0}
+    /* optional: full-screen loader while iframe loads */
+    #loader{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#fff;z-index:9999}
+  </style>
+</head>
+<body>
+  <div id="loader">جارٍ التحميل…</div>
+  <iframe id="frame"
+    sandbox="allow-scripts allow-forms allow-same-origin"
+    src="https://d3upkr104lnguw.cloudfront.net/dict/secondary/eng/14">
+  </iframe>
+
+  <script>
+    const iframe = document.getElementById('frame');
+    iframe.addEventListener('load', ()=> {
+      document.getElementById('loader').style.display='none';
+    });
+    // يمنع السحب بالزر الأيمن (تقدر تحذفه لو مش عايز)
+    window.addEventListener('contextmenu', e => e.preventDefault());
+  </script>
+</body>
+</html>
